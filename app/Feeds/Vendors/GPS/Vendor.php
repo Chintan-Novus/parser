@@ -4,9 +4,10 @@ namespace App\Feeds\Vendors\GPS;
 
 use App\Feeds\Feed\FeedItem;
 use App\Feeds\Processor\HttpProcessor;
+use App\Feeds\Processor\SitemapHttpProcessor;
 use Illuminate\Support\Facades\Log;
 
-class Vendor extends HttpProcessor
+class Vendor extends SitemapHttpProcessor
 {
     public const CATEGORY_LINK_CSS_SELECTORS = [ '.paginations > .page:not(:first-child) a' ];
     public const PRODUCT_LINK_CSS_SELECTORS = [ '.gridProductInfo a:not(.btn):not(.jdgm-star)' ];

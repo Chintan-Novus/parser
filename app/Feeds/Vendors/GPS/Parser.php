@@ -3,12 +3,14 @@
 namespace App\Feeds\Vendors\GPS;
 
 use App\Feeds\Parser\HtmlParser;
+use App\Feeds\Parser\ShopifyParser;
+use App\Feeds\Processor\SitemapHttpProcessor;
 use App\Feeds\Utils\ParserCrawler;
 use App\Helpers\StringHelper;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\DomCrawler\Crawler;
 
-class Parser extends HtmlParser
+class Parser extends ShopifyParser
 {
     private const MAIN_DOMAIN = 'https://www.thegreenpetshop.com/collections/all';
 
@@ -49,7 +51,7 @@ class Parser extends HtmlParser
 
     public function getImages(): array
     {
-            $images = $this->getSrcImages('.mainImgSlide img');
+        $images = $this->getSrcImages('.mainImgSlide img');
         if(count($images) > 0) {
             return $images;
         }
